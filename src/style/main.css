@@ -1,9 +1,35 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Quattrocento:wght@400;700&display=swap");
 * {
-  font-family: "Poppins", sans-serif;
-  color: #333333;
+  color: #fff;
+}
+
+#firstPage {
+  font-family: "Quattrocento", serif;
+  font-size: 5.5vw;
+  line-height: 4.5vh;
+  align-items: center;
+  display: flex;
+  height: 90vh;
+}
+#firstPage ::-moz-selection {
+  background-color: #fff;
+  color: #000000;
+}
+#firstPage ::selection {
+  background-color: #fff;
+  color: #000000;
+}
+#firstPage .text-container h1 {
+  margin-left: calc(5vw * var(--index));
+}
+#firstPage .text-container h1:nth-of-type(2) {
+  --index: 1;
+}
+#firstPage .text-container h1:nth-of-type(3) {
+  --index: 2;
 }
 
 body {
-  background: #f5f5dc;
+  background: #1F42E3;
 }/*# sourceMappingURL=main.css.map */

@@ -1,0 +1,25 @@
+#firstPage {
+  font-family: "Quattrocento", serif;
+  font-size: 5.5vw;
+  line-height: 4.5vh;
+  align-items: center;
+  display: flex;
+  height: 90vh;
+
+  ::selection {
+    background-color: #fff;
+    color: #000000;
+  }
+
+  .text-container h1 {
+    margin-left: calc(5vw * var(--index));
+  }
+
+  .text-container h1:nth-of-type(2) {
+    --index: 1;
+  }
+
+  .text-container h1:nth-of-type(3) {
+    --index: 2;
+  }
+}

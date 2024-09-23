@@ -13,6 +13,7 @@ import { LoginUser } from "../slices/AuthSlice"; // Import LoginUser action
 import logo from "../assets/helpnet-removebg.png";
 import validator from "validator";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 import API_URL from "../config/config";
 
 const CustomTextField = styled(TextField)({
@@ -54,6 +55,7 @@ const CustomButton = styled(Button)({
 
 export default function AuthForm({ title, isLogin, linkText, linkHref }) {
   const dispatch = useDispatch();
+  const navigate = useNavigate()
   const { isLoading, isError, message } = useSelector((state) => state.auth);
   const [formValues, setFormValues] = useState({
     username: "",
@@ -81,6 +83,7 @@ export default function AuthForm({ title, isLogin, linkText, linkHref }) {
       if (!username || !password) {
         newErrors.username = "Username and Password are required";
       }
+      navigate('/')
     } else {
       if (!username || !password || !full_name || !email) {
         newErrors.username = "All fields are required";
