@@ -1,0 +1,24 @@
+.auth-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 95vw;
+  position: relative;
+  z-index: 3;
+
+  .auth-text {
+    display: flex;
+    gap: 1vw;
+    margin: 1vw;
+    font-size: 2.5vh;
+    animation: all 0.3s;
+
+    :hover {
+      text-decoration: underline;
+    }
+  }
+
+  .logo {
+    margin-left: 2vw;
+  }
+}

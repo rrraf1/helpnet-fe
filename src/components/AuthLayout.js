@@ -61,10 +61,9 @@ export default function AuthForm({ title, isLogin, linkText, linkHref }) {
     username: "",
     email: "",
     password: "",
-    full_name: "",
   });
   const [errors, setErrors] = useState({});
-  const { username, email, password, full_name } = formValues;
+  const { username, email, password } = formValues;
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -85,7 +84,7 @@ export default function AuthForm({ title, isLogin, linkText, linkHref }) {
       }
       navigate('/')
     } else {
-      if (!username || !password || !full_name || !email) {
+      if (!username || !password || !email) {
         newErrors.username = "All fields are required";
       }
       if (email && !validator.isEmail(email)) {
@@ -99,14 +98,13 @@ export default function AuthForm({ title, isLogin, linkText, linkHref }) {
     }
 
     if (isLogin) {
-      dispatch(LoginUser({ username, email, password, full_name }));
+      dispatch(LoginUser({ username, email, password }));
     } else {
       try {
         await axios.post(`${API_URL}/auth/register`, {
           username,
           email,
           password,
-          full_name
         })
       } catch (error) {
         if (error.response) {
@@ -149,18 +147,6 @@ export default function AuthForm({ title, isLogin, linkText, linkHref }) {
           />
           {!isLogin && (
             <>
-              <CustomTextField
-                id="full_name"
-                name="full_name"
-                label="Full Name"
-                variant="outlined"
-                onChange={handleChange}
-                value={formValues.full_name}
-                required
-                fullWidth
-                error={!!errors.full_name}
-                helperText={errors.full_name}
-              />
               <CustomTextField
                 id="email"
                 name="email"

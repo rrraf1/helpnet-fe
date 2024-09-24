@@ -1,25 +1,82 @@
+.landing-page-container {
+  // overflow-x: hidden; /* Explicitly hide horizontal overflow */
+  overflow-y: hidden;
+  height: 100%;
+  width: 99vw;
+  position: relative; 
+}
+
 #firstPage {
   font-family: "Quattrocento", serif;
   font-size: 5.5vw;
   line-height: 4.5vh;
   align-items: center;
   display: flex;
-  height: 90vh;
+  height: 85vh;
+  position: relative;
+  z-index: 2; 
 
-  ::selection {
-    background-color: #fff;
-    color: #000000;
-  }
+  .text-container {
+    h1 {
+      margin-left: calc(5vw * var(--index));
+      height: fit-content;
+      width: fit-content;
+      transition: transform 0.3s;
+      position: relative;
 
-  .text-container h1 {
-    margin-left: calc(5vw * var(--index));
-  }
+      &:hover {
+        transform: rotate(10deg);
+      }
+    }
 
-  .text-container h1:nth-of-type(2) {
-    --index: 1;
-  }
+    h1:nth-of-type(2) {
+      --index: 1;
+    }
 
-  .text-container h1:nth-of-type(3) {
-    --index: 2;
+    h1:nth-of-type(3) {
+      --index: 2;
+    }
   }
+}
+
+.bg-elements {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1; /* Ensure backgrounds are behind all content */
+}
+
+.bg-square,
+.bg-square2,
+.bg-circle {
+  position: absolute;
+  border: white solid;
+  opacity: 0.3;
+  transform: translate(-50%, -50%);
+}
+
+.bg-square {
+  width: 98vw;
+  height: 80%;
+  border-radius: 1vw;
+  top: 50%;
+  left: 20%;
+}
+
+.bg-square2 {
+  width: 50%;
+  height: 95%;
+  top: 40%;
+  left: 25%;
+}
+
+.bg-circle {
+  width: 60vw;
+  height: 60vw;
+  border-radius: 40%;
+  top: 20%;
+  left: 80%;
+  rotate: 20deg;
 }

@@ -4,24 +4,34 @@
   color: #fff;
 }
 
+.landing-page-container {
+  overflow-y: hidden;
+  height: 100%;
+  width: 99vw;
+  position: relative;
+}
+
 #firstPage {
   font-family: "Quattrocento", serif;
   font-size: 5.5vw;
   line-height: 4.5vh;
   align-items: center;
   display: flex;
-  height: 90vh;
-}
-#firstPage ::-moz-selection {
-  background-color: #fff;
-  color: #000000;
-}
-#firstPage ::selection {
-  background-color: #fff;
-  color: #000000;
+  height: 85vh;
+  position: relative;
+  z-index: 2;
 }
 #firstPage .text-container h1 {
   margin-left: calc(5vw * var(--index));
+  height: -moz-fit-content;
+  height: fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  transition: transform 0.3s;
+  position: relative;
+}
+#firstPage .text-container h1:hover {
+  transform: rotate(10deg);
 }
 #firstPage .text-container h1:nth-of-type(2) {
   --index: 1;
@@ -30,6 +40,88 @@
   --index: 2;
 }
 
+.bg-elements {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1; /* Ensure backgrounds are behind all content */
+}
+
+.bg-square,
+.bg-square2,
+.bg-circle {
+  position: absolute;
+  border: white solid;
+  opacity: 0.3;
+  transform: translate(-50%, -50%);
+}
+
+.bg-square {
+  width: 98vw;
+  height: 80%;
+  border-radius: 1vw;
+  top: 50%;
+  left: 20%;
+}
+
+.bg-square2 {
+  width: 50%;
+  height: 95%;
+  top: 40%;
+  left: 25%;
+}
+
+.bg-circle {
+  width: 60vw;
+  height: 60vw;
+  border-radius: 40%;
+  top: 20%;
+  left: 80%;
+  rotate: 20deg;
+}
+
+/* Footer at the bottom right and responsive */
+.footer-container {
+  position: absolute;
+  bottom: 0.5vh;
+  right: 1vw;
+  font-size: 2vh;
+  z-index: 3;
+}
+
+.auth-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 95vw;
+  position: relative;
+  z-index: 3;
+}
+.auth-nav .auth-text {
+  display: flex;
+  gap: 1vw;
+  margin: 1vw;
+  font-size: 2.5vh;
+  animation: all 0.3s;
+}
+.auth-nav .auth-text :hover {
+  text-decoration: underline;
+}
+.auth-nav .logo {
+  margin-left: 2vw;
+}
+
 body {
-  background: #1F42E3;
+  background: #1f42e3;
+  cursor: url(../assets/pointer.png), auto;
+}
+body ::-moz-selection {
+  background-color: #fff;
+  color: #000000;
+}
+body ::selection {
+  background-color: #fff;
+  color: #000000;
 }/*# sourceMappingURL=main.css.map */

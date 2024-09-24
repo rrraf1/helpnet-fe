@@ -1,7 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-// import RegisterPage from "./pages/register";
-// import LoginPage from "./pages/login";
-import LandingPage from "./pages/LandingPage";
+import RegisterPage from "./pages/register";
+import LoginPage from "./pages/login";
 import FirstPage from "./pages/FirstPage";
 import { checkLogin } from "./slices/AuthSlice";
 import { useEffect } from "react";
@@ -19,13 +18,13 @@ function App() {
       <Routes>
         {user ? (
           <>
-            <Route path="/" element={<LandingPage />} />
-            <Route path="*" element={<LandingPage />} />
+            <Route path="/" element={<FirstPage />} />
+            <Route path="*" element={<FirstPage />} />
           </>
         ) : (
           <>
-            {/* <Route path="/register" element={<RegisterPage />} />
-            <Route path="/login" element={<LoginPage />} /> */}
+            <Route path="/register" element={<RegisterPage />} />
+            <Route path="/login" element={<LoginPage />} />
             <Route path="*" element={<FirstPage />} />
           </>
         )}

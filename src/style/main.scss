@@ -1,6 +1,15 @@
 @import "fonts";
 @import "pages/firstpage";
 
+@import "components/footer";
+@import "components/navbar";
+
 body {
-    background: #1F42E3;
+  background: #1f42e3;
+  cursor: url(../assets/pointer.png), auto;
+
+  ::selection {
+    background-color: #fff;
+    color: #000000;
+  }
 }
