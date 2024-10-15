@@ -3,7 +3,9 @@ import { useEffect } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { checkLogin } from "../slices/AuthSlice";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import MainPage from "../components/MainPage";
+import Intro from "../components/Intro";
 
 export default function FirstPage() {
   const dispatch = useDispatch();
@@ -29,9 +31,11 @@ export default function FirstPage() {
     dispatch(checkLogin());
   }, [dispatch]);
 
-  // const { user } = useSelector((state) => state.auth);
+  const { user } = useSelector((state) => state.auth);
+
   return (
     <>
+      {!user && <Intro />}
       <div className="landing-page-container" style={{ overflow: "hidden" }}>
         <Navbar />
         <div id="firstPage">
@@ -44,6 +48,7 @@ export default function FirstPage() {
         <div className="bg-square"></div>
         <div className="bg-circle"></div>
         <div className="bg-square2"></div>
+        <MainPage />
         <Footer />
       </div>
     </>

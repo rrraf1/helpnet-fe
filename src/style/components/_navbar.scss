@@ -1,24 +1,65 @@
 .auth-nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  position: fixed;
+  top: -1%;
+  left: 50%;
+  transform: translateX(-50%);
   width: 95vw;
-  position: relative;
-  z-index: 3;
+  z-index: 1000;
 
-  .auth-text {
-    display: flex;
-    gap: 1vw;
-    margin: 1vw;
-    font-size: 2.5vh;
-    animation: all 0.3s;
-
-    :hover {
-      text-decoration: underline;
-    }
+  .nav-blur {
+    position: absolute;
+    top: -5%;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    backdrop-filter: blur(10px);
+    transition: opacity 0.3s ease;
   }
 
-  .logo {
-    margin-left: 2vw;
+  .nav-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0;
+    position: relative;
+    z-index: 1;
+
+    .logo {
+      margin-left: 2vw;
+
+      h2 {
+        font-size: 2.5vh;
+        transition: all 0.3s ease;
+        white-space: nowrap;
+        overflow: hidden;
+        animation: fadeInOut 0.3s ease-in-out;
+      }
+    }
+
+    .auth-text {
+      display: flex;
+      gap: 1vw;
+      margin: 1vw;
+      font-size: 2.5vh;
+      transition: all 0.3s;
+
+      p {
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}
+
+@keyframes fadeInOut {
+
+  0%,
+  100% {
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 1;
   }
 }

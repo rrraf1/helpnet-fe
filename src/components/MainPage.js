@@ -1,12 +1,15 @@
-import { useEffect } from "react";
-import { UseSelector, useDispatch, useSelector } from "react-redux";
-import { checkLogin } from "../slices/AuthSlice";
+// import { useEffect } from "react";
+
+ 
 
 export default function MainPage() {
-    const dispatch = useDispatch();
-    useEffect(() => {
-        dispatch(checkLogin())
-    }, [dispatch])
-
-    const {user} = useSelector((state) => state.auth)
+  return (
+    <div className="content-container">
+      <div className="scroll-container">
+        <p className="scroll__text">[ </p>
+        <p className="scroll__text">Scroll Down</p>
+        <p className="scroll__text"> ]</p>
+      </div>
+    </div>
+  );
 }

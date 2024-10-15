@@ -1,22 +1,31 @@
+@mixin background-element {
+  position: absolute;
+  border: white solid;
+  opacity: 0.3;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+  pointer-events: none;
+}
+
 .landing-page-container {
-  // overflow-x: hidden; /* Explicitly hide horizontal overflow */
-  overflow-y: hidden;
-  height: 100%;
-  width: 99vw;
-  position: relative; 
+  position: relative;
+  z-index: 0;
 }
 
 #firstPage {
   font-family: "Quattrocento", serif;
   font-size: 5.5vw;
-  line-height: 4.5vh;
+  line-height: 20vh;
   align-items: center;
   display: flex;
-  height: 85vh;
+  height: 100vh;
   position: relative;
-  z-index: 2; 
+  z-index: 1;
 
   .text-container {
+    position: relative;
+    z-index: 2;
+
     h1 {
       margin-left: calc(5vw * var(--index));
       height: fit-content;
@@ -39,22 +48,10 @@
   }
 }
 
-.bg-elements {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 1; /* Ensure backgrounds are behind all content */
-}
-
 .bg-square,
 .bg-square2,
 .bg-circle {
-  position: absolute;
-  border: white solid;
-  opacity: 0.3;
-  transform: translate(-50%, -50%);
+  @include background-element;
 }
 
 .bg-square {

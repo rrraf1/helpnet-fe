@@ -1,12 +1,23 @@
 @import "fonts";
 @import "pages/firstpage";
+@import "pages/mainPage";
 
+@import "components/intro";
 @import "components/footer";
 @import "components/navbar";
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
 body {
   background: #1f42e3;
+  scroll-behavior: smooth;
   cursor: url(../assets/pointer.png), auto;
+  overflow-x: hidden;
 
   ::selection {
     background-color: #fff;
