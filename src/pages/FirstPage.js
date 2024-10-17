@@ -2,13 +2,10 @@ import { gsap } from "gsap";
 import { useEffect } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import { checkLogin } from "../slices/AuthSlice";
-import { useDispatch, useSelector } from "react-redux";
-import MainPage from "../components/MainPage";
 import Intro from "../components/Intro";
+import CardStack from "../components/CardStack";
 
-export default function FirstPage() {
-  const dispatch = useDispatch();
+export default function FirstPage({user}) {
   useEffect(() => {
     gsap.fromTo(
       ".text-container h1",
@@ -27,17 +24,15 @@ export default function FirstPage() {
         gsap.to(heading, { rotationX: 0, duration: 0.3, rotationY: 0 });
       });
     });
+  }, []);
 
-    dispatch(checkLogin());
-  }, [dispatch]);
-
-  const { user } = useSelector((state) => state.auth);
+  
 
   return (
     <>
       {!user && <Intro />}
       <div className="landing-page-container" style={{ overflow: "hidden" }}>
-        <Navbar />
+        <Navbar user={user}/>
         <div id="firstPage">
           <div className="text-container">
             <h1>Share</h1>
@@ -48,7 +43,14 @@ export default function FirstPage() {
         <div className="bg-square"></div>
         <div className="bg-circle"></div>
         <div className="bg-square2"></div>
-        <MainPage />
+        <div className="content-container">
+          <div className="scroll-container">
+            <p className="scroll__text">[ </p>
+            <p className="scroll__text">Scroll Down</p>
+            <p className="scroll__text"> ]</p>
+          </div>
+          <CardStack user={user} />
+        </div>
         <Footer />
       </div>
     </>

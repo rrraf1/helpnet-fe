@@ -191,6 +191,22 @@
     opacity: 1;
   }
 }
+.card-container {
+  width: 75vw;
+  background: rgba(206, 206, 206, 0.13);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(19px);
+  -webkit-backdrop-filter: blur(19px);
+  border: 1px solid rgba(206, 206, 206, 0.11);
+}
+.card-container .content-wrapper {
+  margin: 1vw;
+}
+.card-container .content-wrapper .card__text {
+  font-size: 3vw;
+}
+
 * {
   margin: 0;
   padding: 0;

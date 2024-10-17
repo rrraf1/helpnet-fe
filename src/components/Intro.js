@@ -34,28 +34,26 @@ export default function Intro() {
     const tl = gsap.timeline();
 
     tl.to(counterRef.current, {
-      duration: 0.25,
+      duration: 0.50,
       delay: 3.5,
       opacity: 0,
     })
-      .to(".bar", {
-        duration: 1.5,
-        height: 0,
-        stagger: {
-          amount: 0.5,
-        },
-        ease: "power4.inOut",
-      })
+    .to(".bar", {
+      duration: 1,
+      height: 0,
+      stagger: {
+        amount: 0.5,
+      },
+      ease: "power4.inOut",
+    })
+    .set([overlayRef.current, counterRef.current], { zIndex: 0 })
       .from(".h1", {
-        duration: 1.5,
+        duration: 0.5,
         y: 700,
         stagger: {
           amount: 0.5,
         },
         ease: "power4.inOut",
-      })
-      .set([overlayRef.current, counterRef.current], {
-        zIndex: 0,
       });
   }, []);
 
