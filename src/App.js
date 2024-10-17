@@ -18,8 +18,8 @@ function App() {
       <Routes>
         {user ? (
           <>
-            <Route path="/" element={<FirstPage />} />
-            <Route path="*" element={<FirstPage />} />
+            <Route path="/" element={<FirstPage user={user} />} />
+            <Route path="*" element={<FirstPage user={user} />} />
           </>
         ) : (
           <>

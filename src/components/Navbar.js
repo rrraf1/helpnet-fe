@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { checkLogin, logOut } from "../slices/AuthSlice";
-import { useDispatch, useSelector } from "react-redux";
+import { logOut } from "../slices/AuthSlice";
+import { useDispatch } from "react-redux";
 
-export default function Navbar() {
+export default function Navbar({user}) {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [logoText, setLogoText] = useState("AnonyMood.");
@@ -12,7 +12,6 @@ export default function Navbar() {
   const shortLogoText = "AM.";
 
   useEffect(() => {
-    dispatch(checkLogin());
 
     const handleScroll = () => {
       const scrollPosition = window.scrollY;
@@ -45,7 +44,6 @@ export default function Navbar() {
     navigate("/");
   };
 
-  const { user } = useSelector((state) => state.auth);
   const Login = () => navigate("/login");
   const LogoClick = () => navigate("/");
   const Register = () => navigate("/register");
