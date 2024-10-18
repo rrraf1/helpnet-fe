@@ -23,10 +23,12 @@ export default function Card({ text, author, user }) {
           <Typography variant="h2" className="card__text">
             {text}
           </Typography>
-          <Typography variant="caption" className="card__author">
-            {author ? `By: ${author}` : "Unknown Author"}
-          </Typography>
-          <Share className="card__share" onClick={shareImage} />
+          <div className="card-footer">
+            <Typography variant="caption" className="card__author">
+              {author ? `By: ${author}` : "Unknown Author"}
+            </Typography>
+            <Share className="card__share" onClick={shareImage} />
+          </div>
         </div>
       </div>
     </Draggable>
