@@ -79,11 +79,14 @@
 
 .content-container {
   position: relative;
+  width: 100vw;
   z-index: 3;
   display: flex;
+  flex-direction: column;
   width: 100vw;
   height: 100vh;
   justify-content: center;
+  align-items: center;
   margin-top: -10vh;
 }
 .content-container .scroll-container {
@@ -192,7 +195,8 @@
   }
 }
 .card-container {
-  width: 75vw;
+  width: 30vw;
+  position: absolute;
   background: rgba(206, 206, 206, 0.13);
   border-radius: 16px;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
@@ -205,6 +209,16 @@
 }
 .card-container .content-wrapper .card__text {
   font-size: 3vw;
+}
+
+.container-card-stack {
+  width: 100%;
+  margin-top: 20vw;
+  height: 100vh;
+}
+.container-card-stack .card-stack {
+  justify-content: center;
+  align-items: center;
 }
 
 * {

@@ -1,5 +1,6 @@
 .card-container {
-    width: 75vw;
+    width: 30vw;
+    position: absolute;
     background: rgba(206, 206, 206, 0.13);
     border-radius: 16px;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
@@ -13,5 +14,16 @@
         .card__text {
             font-size: 3vw;
         }
+    }
+}
+
+.container-card-stack {
+    width: 100%;
+    margin-top: 20vw;
+    height: 100vh;
+
+    .card-stack {
+        justify-content: center;
+        align-items: center;
     }
 }
