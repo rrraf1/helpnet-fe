@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import api from "../slices/axios";
 import API_URL from "../config/config";
 import Card from "./Card";
+console.log(API_URL);
 
 export default function CardStack({ user }) {
   const [letters, setLetters] = useState([]);
@@ -10,6 +11,8 @@ export default function CardStack({ user }) {
     const fetchLetter = async () => {
       try {
         const response = await api.get(`${API_URL}/letters/get`);
+        console.log(response.data);
+        
         setLetters(response.data);
       } catch (error) {
         console.error("Failed to get letters");
