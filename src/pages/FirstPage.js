@@ -5,7 +5,7 @@ import Footer from "../components/Footer";
 import Intro from "../components/Intro";
 import CardStack from "../components/CardStack";
 
-export default function FirstPage({user}) {
+export default function FirstPage({ user }) {
   useEffect(() => {
     gsap.fromTo(
       ".text-container h1",
@@ -26,18 +26,16 @@ export default function FirstPage({user}) {
     });
   }, []);
 
-  
-
   return (
     <>
       {!user && <Intro />}
       <div className="landing-page-container" style={{ overflow: "hidden" }}>
-        <Navbar user={user}/>
+        <Navbar user={user} />
         <div id="firstPage">
           <div className="text-container">
-            <h1>Share</h1>
-            <h1>Your</h1>
-            <h1>Thought</h1>
+            <h1>Share,</h1>
+            <h1>Listen,</h1>
+            <h1>Connect.</h1>
           </div>
         </div>
         <div className="bg-square"></div>
@@ -48,6 +46,12 @@ export default function FirstPage({user}) {
             <p className="scroll__text">[ </p>
             <p className="scroll__text">Scroll Down</p>
             <p className="scroll__text"> ]</p>
+          </div>
+          <div className="content-banner">
+            <h1 className="content__header">What Others Are Saying</h1>
+            <p className="content__caption">
+              Drag a card to explore a new story
+            </p>
           </div>
           <CardStack user={user} />
         </div>

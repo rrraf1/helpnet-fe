@@ -88,8 +88,24 @@
   align-items: center;
   margin-top: -10vh;
 
+  .main-content-container {
+    width: 100%;
+    height: auto;
+  }
+
+  .content-banner {
+    margin-top: 20vh;
+    display: flex;
+    flex-direction: column;
+    gap: 2dvh;
+
+    .content__caption {
+      text-align: center;
+    }
+  }
+
   .scroll-container {
-    margin-top: -50vh;
+    margin-top: -30vh;
     display: flex;
     width: fit-content;
     height: fit-content;
