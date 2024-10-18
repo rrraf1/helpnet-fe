@@ -26,6 +26,7 @@ export default function CardStack({ user }) {
           text={letters.letter_text}
           author={letters.letter_author}
           user={user}
+          style={{ zIndex: 3 + index }}
         />
       ))}
     </div>

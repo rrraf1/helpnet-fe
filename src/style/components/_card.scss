@@ -1,12 +1,12 @@
 .card-container {
     width: 30vw;
-    position: absolute;
     background: rgba(206, 206, 206, 0.13);
     border-radius: 16px;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(19px);
     -webkit-backdrop-filter: blur(19px);
     border: 1px solid rgba(206, 206, 206, 0.11);
+    margin-left: -35vw;
 
     .content-wrapper {
         margin: 1vw;
@@ -19,8 +19,10 @@
 
 .container-card-stack {
     width: 100%;
-    margin-top: 20vw;
-    height: 100vh;
+    margin-top: 30vh;
+    margin-left: 150vw;
+    display: flex;
+    flex-direction: row;
 
     .card-stack {
         justify-content: center;
