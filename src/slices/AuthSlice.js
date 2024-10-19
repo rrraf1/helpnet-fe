@@ -15,7 +15,7 @@ export const LoginUser = createAsyncThunk(
   "auth/LoginUser",
   async (user, thunkAPI) => {
     try {
-      const response = await axios.post(`${API_URL}/auth/login`, user);
+      const response = await axios.post(`${API_URL}auth/login`, user);
       localStorage.setItem("token", response.data.token);
       return response.data;
     } catch (error) {
@@ -30,7 +30,7 @@ export const checkLogin = createAsyncThunk(
   "user/check",
   async (_, thunkAPI) => {
     try {
-      const response = await axios.get(`${API_URL}/auth/check`);
+      const response = await axios.get(`${API_URL}auth/check`);
       return response.data;
     } catch (error) {
       if (error.response) {
@@ -43,7 +43,7 @@ export const checkLogin = createAsyncThunk(
 
 export const logOut = createAsyncThunk("user/logOut", async (_, thunkAPI) => {
   localStorage.removeItem('token');
-  const response = await axios.delete(`${API_URL}/auth/logout`);
+  const response = await axios.delete(`${API_URL}auth/logout`);
   return response.data;
 });
 

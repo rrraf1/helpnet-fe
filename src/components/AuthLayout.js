@@ -101,7 +101,7 @@ export default function AuthForm({ title, isLogin, linkText, linkHref }) {
       dispatch(LoginUser({ username, email, password }));
     } else {
       try {
-        await axios.post(`${API_URL}/auth/register`, {
+        await axios.post(`${API_URL}auth/register`, {
           username,
           email,
           password,

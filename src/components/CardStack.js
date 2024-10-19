@@ -10,7 +10,7 @@ export default function CardStack({ user }) {
   useEffect(() => {
     const fetchLetter = async () => {
       try {
-        const response = await api.get(`${API_URL}/letters/get`);
+        const response = await api.get(`${API_URL}letters/get`);
         console.log(response.data);
         
         setLetters(response.data);
