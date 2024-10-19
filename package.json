@@ -2,6 +2,7 @@
   "name": "helpnet-fe",
   "version": "0.1.0",
   "private": true,
+  "proxy": "http://8.219.111.246:3000/",
   "dependencies": {
     "@emotion/react": "^11.13.3",
     "@emotion/styled": "^11.13.0",
