@@ -1,2 +1,2 @@
-const API_URL = "https://rw4qv5qm-3000.asse.devtunnels.ms/"; //api server be
+const API_URL = "https://8.219.111.246:3000/"; //api server be
 export default API_URL 
