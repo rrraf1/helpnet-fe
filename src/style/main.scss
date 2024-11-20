@@ -1,10 +1,13 @@
 @import "fonts";
 @import "pages/firstpage";
+@import "pages/login";
+@import "pages/register";
 
 @import "components/intro";
 @import "components/footer";
 @import "components/navbar";
 @import "components/card";
+@import "components/authLayout";
 
 * {
   margin: 0;

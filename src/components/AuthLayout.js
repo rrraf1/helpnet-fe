@@ -3,14 +3,12 @@ import {
   Stack,
   Button,
   Typography,
-  Link,
-  Divider,
+  // Link,
 } from "@mui/material";
 import { useState } from "react";
 import { styled } from "@mui/material/styles";
 import { useDispatch, useSelector } from "react-redux";
-import { LoginUser } from "../slices/AuthSlice"; // Import LoginUser action
-import logo from "../assets/helpnet-removebg.png";
+import { LoginUser } from "../slices/AuthSlice";
 import validator from "validator";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
@@ -55,7 +53,7 @@ const CustomButton = styled(Button)({
 
 export default function AuthForm({ title, isLogin, linkText, linkHref }) {
   const dispatch = useDispatch();
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const { isLoading, isError, message } = useSelector((state) => state.auth);
   const [formValues, setFormValues] = useState({
     username: "",
@@ -82,7 +80,7 @@ export default function AuthForm({ title, isLogin, linkText, linkHref }) {
       if (!username || !password) {
         newErrors.username = "Username and Password are required";
       }
-      navigate('/')
+      navigate('/');
     } else {
       if (!username || !password || !email) {
         newErrors.username = "All fields are required";
@@ -105,7 +103,7 @@ export default function AuthForm({ title, isLogin, linkText, linkHref }) {
           username,
           email,
           password,
-        })
+        });
       } catch (error) {
         if (error.response) {
           setErrors({ backend: error.response.data.message });
@@ -117,87 +115,72 @@ export default function AuthForm({ title, isLogin, linkText, linkHref }) {
   };
 
   return (
-    <Stack direction={"column"} spacing={3}>
-      <Stack direction="row" justifyContent={"center"}>
-        <img
-          src={logo}
-          alt="logo"
-          style={{
-            width: "100%",
-            maxWidth: { xs: "60vw", sm: "40vw", md: "20vw" },
-            height: "auto",
-          }}
+    <>
+      <Stack spacing={3}>
+        <CustomTextField
+          id="username"
+          name="username"
+          label="Username"
+          variant="outlined"
+          onChange={handleChange}
+          value={formValues.username}
+          required
+          fullWidth
+          error={!!errors.username}
+          helperText={errors.username}
+        />
+        {!isLogin && (
+          <CustomTextField
+            id="email"
+            name="email"
+            label="Email"
+            variant="outlined"
+            onChange={handleChange}
+            value={formValues.email}
+            required
+            fullWidth
+            error={!!errors.email}
+            helperText={errors.email}
+          />
+        )}
+        <CustomTextField
+          id="password"
+          name="password"
+          label="Password"
+          variant="outlined"
+          type="password"
+          onChange={handleChange}
+          value={formValues.password}
+          required
+          fullWidth
+          error={!!errors.password}
+          helperText={errors.password}
         />
       </Stack>
-      <Divider />
-      <Stack sx={{ width: "100%" }} spacing={3} mt={5}>
-        <h2>{title}</h2>
-        <Stack spacing={3}>
-          <CustomTextField
-            id="username"
-            name="username"
-            label="Username"
-            variant="outlined"
-            onChange={handleChange}
-            value={formValues.username}
-            required
-            fullWidth
-            error={!!errors.username}
-            helperText={errors.username}
-          />
-          {!isLogin && (
-            <>
-              <CustomTextField
-                id="email"
-                name="email"
-                label="Email"
-                variant="outlined"
-                onChange={handleChange}
-                value={formValues.email}
-                required
-                fullWidth
-                error={!!errors.email}
-                helperText={errors.email}
-              />
-            </>
-          )}
-          <CustomTextField
-            id="password"
-            name="password"
-            label="Password"
-            variant="outlined"
-            type="password"
-            onChange={handleChange}
-            value={formValues.password}
-            required
-            fullWidth
-            error={!!errors.password}
-            helperText={errors.password}
-          />
-        </Stack>
-        <Stack direction="row" justifyContent="flex-end">
-          <CustomButton
-            variant="contained"
-            onClick={handleSubmit}
-            disabled={isLoading}
-          >
-            {isLoading ? "Loading..." : title}
-          </CustomButton>
-        </Stack>
-        <Stack direction="row" justifyContent="flex-end">
-          <Typography variant="body2">
-            {isLogin ? "New user? " : "Have an account? "}
-            <Link href={linkHref} underline="always" variant="body2">
-              {linkText}
-            </Link>
-          </Typography>
-        </Stack>
-        {isError && (
-          <Typography variant="body2" color="red">
-            {message}
-          </Typography>
-        )}
-      </Stack>
-    </Stack>
+      <Stack className="button-group" sx={{ mt: 3 }}>
+  <CustomButton
+    variant="contained"
+    onClick={handleSubmit}
+    disabled={isLoading}
+  >
+    {isLoading ? "Loading..." : title}
+  </CustomButton>
+  <Button
+    variant="outlined"
+    href={linkHref}
+    sx={{ textTransform: "none" }}
+  >
+    {linkText}
+  </Button>
+</Stack>
+      <Typography sx={{ mt: 2, textAlign: 'center' }}>
+        Forgot Password?
+      </Typography>
+      {isError && (
+        <Typography variant="body2" color="red">
+          {message}
+        </Typography>
+      )}
+    </>
   );
 }

@@ -117,6 +117,77 @@
   scale: 1.1;
 }
 
+.login-bg-square,
+.login-bg-square2,
+.login-bg-circle {
+  position: absolute;
+  border: white solid;
+  opacity: 0.3;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+  pointer-events: none;
+}
+
+.login-bg-square {
+  width: 40vw;
+  height: 95%;
+  border-radius: 1vw;
+  top: 30%;
+  left: 10%;
+}
+
+.login-bg-square2 {
+  width: 50%;
+  height: 60vw;
+  border-radius: 1vw;
+  top: 32%;
+  left: 10%;
+}
+
+.login-bg-circle {
+  width: 80vw;
+  height: 90vw;
+  border-radius: 100%;
+  left: 110vw;
+}
+
+.login-container {
+  display: flex;
+  max-width: 900px;
+  height: 600px;
+  border-radius: 50px;
+  margin: 2rem auto;
+  overflow: hidden;
+  background: #fff;
+}
+
+.login-content {
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+
+.login-left {
+  flex: 1;
+  height: 100%;
+  overflow: hidden;
+}
+.login-left img {
+  margin-top: -1rem;
+  width: 100%;
+  height: 650px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.login-right {
+  flex: 1;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
 .overlay {
   position: fixed;
   width: 100vw;
@@ -245,6 +316,114 @@
 .container-card-stack .card-stack {
   justify-content: center;
   align-items: center;
+}
+
+.MuiStack-root {
+  max-width: 400px;
+  border-radius: 24px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  padding: 40px;
+}
+.MuiStack-root h2 {
+  color: #2962FF;
+  font-size: 24px;
+  text-align: center;
+  margin: 0 0 40px;
+}
+.MuiStack-root .MuiTextField-root .MuiOutlinedInput-root {
+  background: transparent;
+}
+.MuiStack-root .MuiTextField-root .MuiOutlinedInput-root fieldset {
+  border: none;
+  border-bottom: 2px solid #2962FF;
+  border-radius: 0;
+}
+.MuiStack-root .MuiTextField-root .MuiOutlinedInput-root:hover fieldset {
+  border-bottom-color: #0041f5;
+}
+.MuiStack-root .MuiTextField-root .MuiOutlinedInput-root.Mui-focused fieldset {
+  border-bottom-color: #0041f5;
+}
+.MuiStack-root .MuiTextField-root .MuiOutlinedInput-root input {
+  padding: 12px 0;
+  color: #333333;
+  font-size: 16px;
+}
+.MuiStack-root .MuiTextField-root .MuiOutlinedInput-root input::-moz-placeholder {
+  color: rgba(51, 51, 51, 0.5);
+}
+.MuiStack-root .MuiTextField-root .MuiOutlinedInput-root input::placeholder {
+  color: rgba(51, 51, 51, 0.5);
+}
+.MuiStack-root .MuiTextField-root .MuiInputLabel-root {
+  color: #333333;
+  font-size: 16px;
+}
+.MuiStack-root .MuiTextField-root .MuiInputLabel-root.Mui-focused {
+  color: #2962FF;
+}
+.MuiStack-root .MuiTextField-root .MuiInputLabel-root.Mui-error {
+  color: #e74c3c;
+}
+.MuiStack-root .MuiTextField-root .MuiFormHelperText-root {
+  margin-left: 0;
+}
+.MuiStack-root .MuiButton-root.MuiButton-contained {
+  background-color: #2962FF;
+  color: #FFFFFF;
+  padding: 8px 16px;
+  border-radius: 50px;
+  font-size: 14px;
+  text-transform: none;
+  width: 60%;
+  margin-bottom: 8px;
+}
+.MuiStack-root .MuiButton-root.MuiButton-contained:hover {
+  background-color: #0041f5;
+}
+.MuiStack-root .MuiButton-root.MuiButton-contained.Mui-disabled {
+  background-color: rgba(41, 98, 255, 0.5);
+}
+.MuiStack-root .MuiButton-root.MuiButton-outlined {
+  color: #2962FF;
+  border-color: 2px solid #2962FF;
+  padding: 8px 16px;
+  border-radius: 50px;
+  font-size: 14px;
+  text-transform: none;
+  width: 60%;
+  margin-top: 8px;
+}
+.MuiStack-root .MuiButton-root.MuiButton-outlined:hover {
+  background-color: rgba(41, 98, 255, 0.1);
+}
+.MuiStack-root .MuiButton-root .MuiLink-root {
+  color: #2962FF;
+  margin-left: 4px;
+}
+.MuiStack-root .MuiButton-root .MuiLink-root:hover {
+  text-decoration: underline;
+}
+.MuiStack-root .button-group {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+  margin-left: 300px;
+}
+.MuiStack-root .MuiTypography-root[color=red] {
+  color: #e74c3c;
+  margin-top: 8px;
+  font-size: 14px;
+}
+.MuiStack-root .MuiTypography-root:last-child {
+  color: #2962FF;
+  text-align: center;
+  cursor: pointer;
+  font-size: 14px;
+}
+.MuiStack-root .MuiTypography-root:last-child:hover {
+  text-decoration: underline;
 }
 
 * {

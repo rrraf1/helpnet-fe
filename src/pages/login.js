@@ -1,20 +1,28 @@
-import { Grid, Card } from "@mui/material";
-import AuthForm from "../components/AuthLayout";
+import React from 'react';
+import AuthForm from '../components/AuthLayout';
+import bgLogin from '../assets/login-left.svg';
 
-export default function LoginPage() {
+export default function LoginPage () {
   return (
-    <Grid container justifyContent={"center"} sx={{ my: { xs: 13, sm: 5, md: 3, lg: 2 } }}>
-      <Card
-        sx={{
-          padding: { xs: 3, sm: 4, md: 5, lg: 5.5 },
-          background: "#fafafa",
-          width: { xs: "80vw", sm: "60%", md: "40%", lg: "30%" },
-          maxWidth: "600px",
-          boxShadow: 3,
-        }}
-      >
-        <AuthForm title="Login" isLogin={true} linkText="Register" linkHref="/register" />
-      </Card>
-    </Grid>
+    <div className="login-page">
+      <div className="login-bg-square"></div>
+      <div className="login-bg-square2"></div>
+      <div className="login-bg-circle"></div>
+      
+      <div className="login-container">
+        <div className="login-content">
+          <div className="login-left">
+            <img src={bgLogin} alt="bgLogin" />
+          </div>
+          <div className="login-right">
+            <AuthForm title="Login" isLogin 
+              linkText="Create account" 
+              linkHref="/register"  
+            />
+          </div>
+        </div>
+      </div>
+    </div>
   );
-}
+};
+
