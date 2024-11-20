@@ -3,9 +3,10 @@ $text-color: #333333;
 
 .MuiStack-root {
   max-width: 400px;
-  border-radius: 24px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-  padding: 40px;
+  // border-radius: 24px;
+  // box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  // padding: 40px;
+  margin-bottom: 20px;
 
   h2 {
     color: $primary-blue;
@@ -17,6 +18,8 @@ $text-color: #333333;
   .MuiTextField-root {
     .MuiOutlinedInput-root {
       background: transparent;
+      width: 350px;
+      margin-left: 2rem;
       
       fieldset {
         border: none;
@@ -32,6 +35,10 @@ $text-color: #333333;
         border-bottom-color: darken($primary-blue, 10%);
       }
 
+      label {
+        margin-left: 10rem;
+      }
+
       input {
         padding: 12px 0;
         color: $text-color;
@@ -39,6 +46,7 @@ $text-color: #333333;
 
         &::placeholder {
           color: rgba($text-color, 0.5);
+
         }
       }
     }
@@ -46,6 +54,9 @@ $text-color: #333333;
     .MuiInputLabel-root {
       color: $text-color;
       font-size: 16px;
+      margin-left: 1rem;
+      font-family: Quattrocento;
+      color: blue;
       
       &.Mui-focused {
         color: $primary-blue;
@@ -70,7 +81,8 @@ $text-color: #333333;
       font-size: 14px; // Smaller font size
       text-transform: none;
       width: 60%; // Narrower button width
-      margin-bottom: 8px;
+      margin-left: 4.5rem;
+      margin-top: 3rem;
       
       &:hover {
         background-color: darken($primary-blue, 10%);
@@ -89,7 +101,8 @@ $text-color: #333333;
       font-size: 14px;
       text-transform: none;
       width: 60%; 
-      margin-top: 8px;
+      margin-left: 4.5rem;
+      margin-top: 1rem;
       
       &:hover {
         background-color: rgba(41, 98, 255, 0.1);

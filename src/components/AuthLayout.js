@@ -2,8 +2,8 @@ import {
   TextField,
   Stack,
   Button,
-  Typography,
-  // Link,
+  Link,
+  Box
 } from "@mui/material";
 import { useState } from "react";
 import { styled } from "@mui/material/styles";
@@ -49,6 +49,42 @@ const CustomButton = styled(Button)({
   borderRadius: "4px",
   padding: "10px 20px",
   textTransform: "none",
+});
+
+const FormHeader = styled('h1')({
+  fontSize: '1.5rem',
+  fontWeight: 'bold',
+  marginBottom: '1rem',
+  color: '#3958E6',
+  userSelect: 'none', // Prevent text selection
+  fontFamily: 'Quattrocento',
+  textAlign: 'center',
+});
+
+const ForgotPasswordLink = styled(Link)({
+  color: '#2962FF',
+  textDecoration: 'underline',
+  cursor: 'pointer',
+  fontSize: '0.875rem',
+  textAlign: 'center',
+  '&:hover': {
+    color: '#1a237e',
+  },
+  fontFamily: 'Quattrocento',
+  position: 'absolute',
+  bottom: '2rem',
+  width: '100%',
+  left: '0',
+});
+
+const FormContainer = styled(Box)({
+  position: 'relative',
+  width: '100%',
+  maxWidth: '400px',
+  marginTop: '7rem',
+  minHeight: '500px', // Add minimum height to ensure space for absolute positioning
+  display: 'flex',
+  flexDirection: 'column',
 });
 
 export default function AuthForm({ title, isLogin, linkText, linkHref }) {
@@ -114,9 +150,15 @@ export default function AuthForm({ title, isLogin, linkText, linkHref }) {
     }
   };
 
+  const handleForgotPassword = () => {
+    navigate('/forgot-password');
+  };
+
   return (
-    <>
-      <Stack spacing={3}>
+    <FormContainer>
+      <Stack spacing={2}>
+        <FormHeader>Login Your Account</FormHeader>
+
         <CustomTextField
           id="username"
           name="username"
@@ -156,31 +198,29 @@ export default function AuthForm({ title, isLogin, linkText, linkHref }) {
           error={!!errors.password}
           helperText={errors.password}
         />
+        <CustomButton
+          variant="contained"
+          onClick={handleSubmit}
+          disabled={isLoading}
+          fullWidth
+        >
+          {isLoading ? "Loading..." : title}
+        </CustomButton>
+        <Button
+          variant="outlined"
+          href={linkHref}
+          sx={{ textTransform: "none" }}
+          fullWidth
+        >
+          {linkText}
+        </Button>
       </Stack>
-      <Stack className="button-group" sx={{ mt: 3 }}>
-  <CustomButton
-    variant="contained"
-    onClick={handleSubmit}
-    disabled={isLoading}
-  >
-    {isLoading ? "Loading..." : title}
-  </CustomButton>
-  <Button
-    variant="outlined"
-    href={linkHref}
-    sx={{ textTransform: "none" }}
-  >
-    {linkText}
-  </Button>
-</Stack>
-      <Typography sx={{ mt: 2, textAlign: 'center' }}>
+      <ForgotPasswordLink
+        component="button"
+        onClick={handleForgotPassword}
+      >
         Forgot Password?
-      </Typography>
-      {isError && (
-        <Typography variant="body2" color="red">
-          {message}
-        </Typography>
-      )}
-    </>
+      </ForgotPasswordLink>
+    </FormContainer>
   );
 }
