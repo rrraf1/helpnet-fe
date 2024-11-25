@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import RegisterPage from "./pages/register";
 import LoginPage from "./pages/login";
 import FirstPage from "./pages/FirstPage";
+import DashboardPage from "./pages/Dashboard";
 import { checkLogin } from "./slices/AuthSlice";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -25,6 +26,7 @@ function App() {
           <>
             <Route path="/register" element={<RegisterPage />} />
             <Route path="/login" element={<LoginPage />} />
+            <Route path="/dashboard" element={<DashboardPage />} />
             <Route path="*" element={<FirstPage />} />
           </>
         )}

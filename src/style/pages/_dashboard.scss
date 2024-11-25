@@ -1,0 +1,146 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif; /* Font default */
+  color: #fff; /* Warna teks default */
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+}
+
+.dashboard-layout {
+  display: flex;
+  height: 100vh; /* Tinggi penuh layar */
+  background: linear-gradient(180deg, #1F42E3, #11247D); /* Latar belakang gradasi */
+
+  /* Sidebar Kiri */
+  .sidebar-left {
+    width: 466px; /* Lebar sidebar diperbesar */
+    color: #1f42e3;
+    border-right: 1px solid #d3d3d3; /* Border abu-abu */
+    font-size: 1.9rem; /* Perbesar font */
+    font-weight: bold;
+  
+    ul {
+      list-style: none;
+      padding: 0px 110px; /* Tambahkan padding untuk posisi */
+      margin-top: 110px;
+  
+      li {
+        display: flex; /* Gunakan flexbox untuk ikon dan teks */
+        align-items: center; /* Posisikan teks sejajar dengan ikon */
+        gap: 15px; /* Jarak antara ikon dan teks */
+        padding: 10px 0;
+        cursor: pointer;
+        transition: background 0.3s, color 0.3s; /* Efek hover */
+        border: none; /* Pastikan tidak ada border di item */
+      }
+  
+      li:hover {
+        background: #1f42e3;
+        color: white;
+        border-radius: 5px;
+        padding-left: 15px;
+        border: none;
+      }
+    }
+  
+    .post-button {
+      padding: 15px 25px;
+      width: 60%; /* Tombol memenuhi lebar sidebar */
+      background: #000000;
+      border: none;
+      border-radius: 62px;
+      color: white;
+      font-size: 1.9rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s;
+      margin: 50px 70px;
+  
+      &:hover {
+        background: #282828; /* Warna lebih gelap saat hover */
+      }
+    }
+  }
+  
+
+  /* Konten Utama */
+  .main-content {
+    flex-grow: 1; /* Isi ruang yang tersisa */
+    overflow-y: auto; /* Bagian tengah bisa di-scroll */
+    padding: 20px;
+    background: transparent; /* Agar terlihat gradasinya */
+    box-sizing: border-box; /* Menghindari padding menambah ukuran elemen */
+    overflow-y: scroll;
+    scrollbar-width: none;
+
+    .dashboard-header {
+      text-align: center;
+      margin-bottom: 20px;
+
+      h1 {
+        font-size: 2rem; /* Font lebih besar */
+        color: white;
+      }
+    }
+
+    .dashboard-feed {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 15px;
+
+      .feed-card {
+        opacity: 69%;
+        width: 80%;
+        max-width: 506px;
+        height: 296px;
+        background: white;
+        padding: 15px;
+        border-radius: 8px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        text-align: left;
+      }
+    }
+  }
+
+  /* Sidebar Kanan */
+  .sidebar-right {
+    width: 584px; /* Sama seperti sidebar kiri */
+    border-left: 1px solid #d3d3d3; /* Border abu-abu */
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    box-sizing: border-box; /* Menghindari padding menambah ukuran elemen */
+
+    .search-bar {
+      input {
+        width: 100%;
+        padding: 10px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        outline: none;
+        font-size: 1rem;
+
+        &:focus {
+          border-color: #1F42E3;
+          box-shadow: 0 0 5px rgba(31, 66, 227, 0.5);
+        }
+      }
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+
+      li {
+        padding: 10px 0;
+        border: none; /* Pastikan tidak ada border di item */
+      }
+    }
+  }
+}
